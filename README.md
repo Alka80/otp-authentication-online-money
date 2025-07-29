@@ -1,3 +1,4 @@
 # OTP Authentication Online Money Transaction System
-Hello Guys !!
-- check update -> mirroring 
+
+Project repo for implementing OTP authentication in secure online money transactions.
+
