@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const SignIn = () => {
   return (
     <div className="min-h-screen flex">
@@ -29,14 +31,14 @@ export const SignIn = () => {
 
         <p className="text-gray-600 text-sm mt-6">
           Don’t have an account?{" "}
-          <a href="#" className="text-blue-600 hover:underline font-medium">
-            Sign Up
-          </a>
+          <Link to="/signup" className="text-blue-600 hover:underline font-medium">
+                Sign Up
+            </Link>
         </p>
       </div>
 
       {/* Right Section (Gradient Background) */}
-      <div className="w-1/2 bg-gradient-to-br from-blue-200 via-blue-100 to-blue-200"></div>
+      <div className="w-1/2 bg-gradient-to-br from-blue-300 via-blue-200 to-blue-300"></div>
     </div>
   );
 }
