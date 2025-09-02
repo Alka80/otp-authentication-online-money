@@ -30,7 +30,7 @@ export function Home() {
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-md flex flex-col">
+      <aside className="w-64 bg-white shadow-md flex flex-col ">
         <div className="px-6 py-6 font-bold text-lg text-blue-600">UserAccount</div>
         <nav className="flex flex-col gap-2 px-4">
           <SidebarItem icon={<HomeIcon size={18} />} label="Home" to="/home" />
