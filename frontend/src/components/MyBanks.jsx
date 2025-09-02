@@ -1,6 +1,6 @@
 import React from "react";
 import { Home as HomeIcon, Banknote, History, Send } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export function MyBanks() {
   return (
@@ -10,7 +10,7 @@ export function MyBanks() {
         <div className="px-6 py-6 font-bold text-lg text-blue-600">UserAccount</div>
         <nav className="flex flex-col gap-2 px-4">
           <SidebarItem icon={<HomeIcon size={18} />} label="Home" to="/home" />
-          <SidebarItem icon={<Banknote size={18} />} label="My Banks" to="/mybanks" active />
+          <SidebarItem icon={<Banknote size={18} />} label="My Banks" to="/mybanks" />
           <SidebarItem icon={<History size={18} />} label="Transaction History" to="/transactions" />
           <SidebarItem icon={<Send size={18} />} label="Transfer Funds" to="/transfer" />
         </nav>
@@ -33,12 +33,15 @@ export function MyBanks() {
   );
 }
 
-function SidebarItem({ icon, label, active, to }) {
+function SidebarItem({ icon, label, to }) {
+  const location = useLocation();
+  const isActive = location.pathname === to;
+
   return (
     <Link
       to={to}
       className={`flex items-center gap-2 px-4 py-2 rounded-md cursor-pointer ${
-        active ? "bg-blue-100 text-blue-600" : "text-gray-600"
+        isActive ? "bg-blue-100 text-blue-600" : "text-gray-600"
       }`}
     >
       {icon}
