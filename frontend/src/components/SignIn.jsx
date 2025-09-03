@@ -3,12 +3,19 @@ import { useState } from "react";
 
 export const SignIn = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    // For now, any input will redirect to /home
+
+    // Basic validation
+    if (!username || !password) {
+      alert("Both username and password are required!");
+      return;
+    }
+
+    // For now, any valid input redirects to /home
     navigate("/home");
   };
 
@@ -22,12 +29,13 @@ export const SignIn = () => {
         <p className="text-gray-500 mb-8">Enter your details</p>
 
         <form onSubmit={handleSignIn}>
-          <label className="block text-gray-700 font-medium mb-1">Email</label>
+          <label className="block text-gray-700 font-medium mb-1">Username</label>
           <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            placeholder="Enter your username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
             className="w-full px-4 py-2 mb-6 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
@@ -37,6 +45,7 @@ export const SignIn = () => {
             placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
             className="w-full px-4 py-2 mb-8 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 

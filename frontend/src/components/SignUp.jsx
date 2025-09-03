@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-
 export const SignUp = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     dob: "",
+    accountNumber: "",
     accountType: "Savings",
+    username: "",
     password: "",
     confirmPassword: ""
   });
@@ -18,20 +19,19 @@ export const SignUp = () => {
   };
 
   const handleSignup = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  // Check if any field is empty
-  for (const [key, value] of Object.entries(formData)) {
-    if (!value.trim()) {
-      alert(`Please enter your ${key}`);
-      return;
+    // Check if any field is empty
+    for (const [key, value] of Object.entries(formData)) {
+      if (!value.trim()) {
+        alert(`Please enter your ${key}`);
+        return;
+      }
     }
-  }
 
-  // Proceed to OTP verification page if all fields are filled
-  navigate("/verify-otp", { state: { phone: formData.phone } });
-};
-
+    // Proceed to OTP verification page if all fields are filled
+    navigate("/verify-otp", { state: { phone: formData.phone } });
+  };
 
   return (
     <div className="min-h-screen flex">
@@ -73,6 +73,17 @@ export const SignUp = () => {
             className="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
+          {/* Account Number */}
+          <label className="block text-gray-700 font-medium mb-1">Account Number</label>
+          <input
+            type="text"
+            name="accountNumber"
+            value={formData.accountNumber}
+            onChange={handleChange}
+            placeholder="Enter your account number"
+            className="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
           {/* Account Type */}
           <label className="block text-gray-700 font-medium mb-1">Account Type</label>
           <select
@@ -84,6 +95,17 @@ export const SignUp = () => {
             <option>Savings</option>
             <option>Current</option>
           </select>
+
+          {/* Username */}
+          <label className="block text-gray-700 font-medium mb-1">Username</label>
+          <input
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            placeholder="Create a username"
+            className="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
 
           {/* Password */}
           <label className="block text-gray-700 font-medium mb-1">Password</label>
