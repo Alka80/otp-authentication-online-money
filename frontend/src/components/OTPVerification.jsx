@@ -12,7 +12,7 @@ export const OTPVerification = () => {
     // API call to verify OTP
     console.log("Verifying OTP:", otp);
     alert("OTP Verified Successfully!");
-    navigate("/dashboard"); // or wherever after successful signup
+    navigate("/"); // or wherever after successful signup
   };
 
   return (

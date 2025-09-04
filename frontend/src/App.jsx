@@ -30,7 +30,7 @@ function Layout() {
       <main
         className={`${!hideSidebar ? "ml-64" : ""} h-screen ${
           needsScroll ? "overflow-y-auto" : ""
-        } p- bg-gray-50 w-full`}
+        } bg-gray-50 w-full`}
       >
         <Routes>
           <Route path="/" element={<SignIn />} />

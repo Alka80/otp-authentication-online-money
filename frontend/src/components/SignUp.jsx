@@ -27,6 +27,10 @@ export const SignUp = () => {
         alert(`Please enter your ${key}`);
         return;
       }
+
+      console.log("Navigating to OTP with phone:", formData.phone);
+navigate("/verify-otp", { state: { phone: formData.phone } });
+
     }
 
     // Proceed to OTP verification page if all fields are filled
